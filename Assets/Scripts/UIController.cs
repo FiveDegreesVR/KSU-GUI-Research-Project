@@ -51,7 +51,7 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        VolumeUIText.text = VolumeSlider.value + "%";
+        VolumeUIText.text = (int)VolumeSlider.value + "%";
         
         if (!volTaskComplete)
         {
