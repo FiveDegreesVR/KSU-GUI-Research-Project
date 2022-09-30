@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HandCollissionManager : MonoBehaviour
@@ -22,7 +23,23 @@ public class HandCollissionManager : MonoBehaviour
         if (collision.gameObject.CompareTag("DiffDropdown"))
         {
             TouchUIController.expandDropdown();
-            //Debug.Log("yep");
         }
+        
+        if (collision.gameObject.CompareTag("StartButton"))
+        {
+            TouchUIController.pressStartGame();
+        }
+
+        if (TouchUIController.getDropdownStatus())
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                if (collision.gameObject.CompareTag("Option" + i))
+                {
+                    TouchUIController.assignSelectedValue(i);
+                }
+            }
+        }
+        
     }
 }
