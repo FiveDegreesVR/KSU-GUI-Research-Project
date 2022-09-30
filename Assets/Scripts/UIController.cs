@@ -72,8 +72,6 @@ public class UIController : MonoBehaviour
                 DifTaskComplete = true;    
             }
         }
-        
-        
     }
 
     void UpdateStartTaskColor()
