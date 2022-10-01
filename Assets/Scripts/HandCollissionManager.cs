@@ -20,15 +20,12 @@ public class HandCollissionManager : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("DiffDropdown"))
-        {
-            TouchUIController.expandDropdown();
-        }
-        
         if (collision.gameObject.CompareTag("StartButton"))
         {
             TouchUIController.pressStartGame();
         }
+        
+        
 
         if (TouchUIController.getDropdownStatus())
         {
@@ -40,6 +37,23 @@ public class HandCollissionManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("DiffDropdown"))
+        {
+            TouchUIController.expandDropdown();
+        }
         
+        if (collision.gameObject.name == "VolUp")
+        {
+            TouchUIController.volumeUp();
+        }
+        
+        if (collision.gameObject.name == "VolDown")
+        {
+            TouchUIController.volumeDown();
+        }
     }
 }
