@@ -13,6 +13,7 @@ public class Hand : MonoBehaviour
     public Vector3 rotationOffset;
     private Transform followTarget;
     private Rigidbody body;
+    public float delayTimer;
 
 
     //animation
@@ -85,6 +86,16 @@ public class Hand : MonoBehaviour
     public void ToggleVisibility()
     {
         mesh.enabled = !mesh.enabled;
+    }
+
+    public void ToggleActiveDelay()
+    {
+        Invoke(nameof(ToggleActive), delayTimer);
+    }
+
+    private void ToggleActive()
+    {
+        gameObject.SetActive(true);
     }
 
     private void PhysicsMove()

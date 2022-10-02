@@ -13,6 +13,11 @@ public class HandController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<ActionBasedController>();
+
+        if (GetComponent<XRDirectInteractor>().hasSelection)
+        {
+            Debug.Log("yeeeeee");
+        }
     }
 
     // Update is called once per frame
